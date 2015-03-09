@@ -120,6 +120,7 @@
     <Compile Include="Board\MainBoard.cs" />
     <Compile Include="Board\SecondStage.cs" />
     <Compile Include="Entities\FourLetters.cs" />
+    <Compile Include="Entities\Letter.cs" />
     <Compile Include="Entities\SingleLetter.cs" />
     <Compile Include="Entities\ThreeLetters.cs" />
     <Compile Include="Entity.cs" />

@@ -1,14 +1,16 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using InteractiveKeyboard2010.Board;
+using InteractiveKeyboard2010.Entities;
 
 namespace EyeTrackingKeyBoard.Entities
 {
-    public class ThreeLetters : Entity
+    public class ThreeLetters : Letter
     {
         public String L1 { get; set; }
         public String L2 { get; set; }
@@ -45,7 +47,10 @@ namespace EyeTrackingKeyBoard.Entities
         {
             if(IsHighlighted)
             {
-                Static.SpriteBatch.Draw(this.Texture, Rectangle, Color.Gold); 
+                var tmpColor = new Color((Color.Red.R), 0f, 0f);
+
+                Static.SpriteBatch.Draw(this.Texture, Rectangle, Color.Red); 
+                Debug.WriteLine(tmpColor.R + " " + this.FocusTime);
             }else
             {
                 Static.SpriteBatch.Draw(this.Texture, Rectangle, BGColor); 

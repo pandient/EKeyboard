@@ -35,7 +35,7 @@ namespace EyeTrackingKeyBoard
 
         public override void Update(GameTime gameTime)
         {
-            UpdateEntitySelection();
+            UpdateEntitySelection(gameTime);
             int len = Entities.Count();
             Entity tmp = null;
 
@@ -49,19 +49,22 @@ namespace EyeTrackingKeyBoard
             base.Update(gameTime);
         }
 
-        public void UpdateEntitySelection()
+        public void UpdateEntitySelection(GameTime gameTime)
         {
             
             foreach (var entity in Entities)
             {
                 entity.IsHighlighted = false;
                 entity.IsSelected = false;
-                if(entity.Rectangle.Contains((int)GazePoint.X,(int)GazePoint.Y))
+                //if(entity.Rectangle.Contains((int)GazePoint.X,(int)GazePoint.Y))
+                if (entity.Rectangle.Contains((int)Input.Position.X, (int)Input.Position.Y))
                 {
                     entity.IsHighlighted = true;
-                    if(Input.IsLeftClick())
+                    entity.FocusTime += gameTime.ElapsedGameTime.Milliseconds;
+                    if(Input.IsLeftClick() || entity.FocusTime > 1500)
                     {
                         entity.IsSelected = true;
+                        Entities.ForEach(r => r.FocusTime = 1);
                     }
                 }
             }

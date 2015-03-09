@@ -12,14 +12,14 @@ namespace EyeTrackingKeyBoard.Entities
         public String Letter { get; set; }
 
 
-        public SingleLetter(String Text )
+        public SingleLetter(String Text)
         {
-           // this.position = position;
+            // this.position = position;
             this.Letter = Text;
         }
 
         public SingleLetter(String Text, Rectangle rectangle, Color bgColor, Color textColor)
-            :base(rectangle,bgColor,textColor)
+            : base(rectangle, bgColor, textColor)
         {
             this.Letter = Text;
         }
@@ -27,11 +27,12 @@ namespace EyeTrackingKeyBoard.Entities
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            
-            if(IsHighlighted)
+
+            if (IsHighlighted)
             {
                 Static.SpriteBatch.Draw(Texture, Rectangle, Color.Gold);
-            }else
+            }
+            else
             {
                 Static.SpriteBatch.Draw(Texture, Rectangle, BGColor);
             }
@@ -45,8 +46,13 @@ namespace EyeTrackingKeyBoard.Entities
             {
                 Static.Text += Letter;
                 Static.CurrentStage = Static.MainStage;
+                if (Static.Text.Length > 10)
+                {
+                    Static.Text = Static.Text.Substring(1);
+                }
             }
             base.Update(gameTime);
+
         }
     }
 }

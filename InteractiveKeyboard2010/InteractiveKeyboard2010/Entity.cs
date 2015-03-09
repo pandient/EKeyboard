@@ -16,6 +16,7 @@ namespace EyeTrackingKeyBoard
         public Color TextColor { get; set; }
         public bool IsSelected = false;
         public bool IsHighlighted = false;
+        public int FocusTime = 1;
 
 
         public Entity() :base(Static.Game)
@@ -48,7 +49,7 @@ namespace EyeTrackingKeyBoard
 
         public override void Update(GameTime gameTime)
         {
-
+            
             base.Update(gameTime);
         }
 
