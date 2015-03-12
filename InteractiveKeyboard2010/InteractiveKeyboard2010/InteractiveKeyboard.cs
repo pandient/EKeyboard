@@ -111,7 +111,7 @@ namespace EyeTrackingKeyBoard
             spriteBatch.Begin();
             
             Static.CurrentStage.Draw(gameTime);
-            spriteBatch.DrawString(Static.SpriteFont, Static.Text, new Vector2(width/3f, height/2), Color.Black);
+            spriteBatch.DrawString(Static.SpriteFont, Static.Text, new Vector2(width/3f, height/2.8f), Color.Black);
            // spriteBatch.Draw(rect, new Rectangle((int)gazePoint.X, (int)gazePoint.Y, 20, 20), Color.White);
             spriteBatch.End();
 

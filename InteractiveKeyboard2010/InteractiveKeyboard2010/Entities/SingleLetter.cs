@@ -44,11 +44,21 @@ namespace EyeTrackingKeyBoard.Entities
         {
             if (this.IsSelected)
             {
-                Static.Text += Letter;
-                Static.CurrentStage = Static.MainStage;
-                if (Static.Text.Length > 10)
+
+
+                if (Letter.ToLower() == "space")
                 {
-                    Static.Text = Static.Text.Substring(1);
+
+                    Static.Text += " ";
+                }
+                else
+                {
+                    Static.Text += Letter;
+                }
+                Static.CurrentStage = Static.MainStage;
+                if (Static.Text.Length % 15 == 0)
+                {
+                    Static.Text += "\n";
                 }
             }
             base.Update(gameTime);

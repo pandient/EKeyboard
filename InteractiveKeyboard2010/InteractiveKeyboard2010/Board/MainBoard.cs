@@ -26,7 +26,7 @@ namespace EyeTrackingKeyBoard.Board
             var targetStage = new SecondStage(width, height);
 
             var NW = new ThreeLetters("A", "B", "C", new Rectangle(0, 0, keyWidth, keyHeight), bgColor, txtColor, targetStage);
-            var N = new ThreeLetters("D", "E", "F", new Rectangle(keyWidth, 0, keyWidth, keyHeight), bgColor, txtColor,targetStage);
+            var N = new FourLetters("D", "E","Space" ,"F", new Rectangle(keyWidth, 0, keyWidth, keyHeight), bgColor, txtColor, targetStage);
             var NE = new ThreeLetters("G", "H", "I", new Rectangle(2 * keyWidth, 0, keyWidth, keyHeight), bgColor, txtColor, targetStage);
 
             var W = new FourLetters("W", "X", "Y", "Z", new Rectangle(0, keyHeight, keyWidth, keyHeight), bgColor,
